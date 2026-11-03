@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Informativa sulla privacy del sito bluodisseo.com (Edoardo Tacconi, Blu Odisseo).">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://bluodisseo.com/privacy/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  html, body { margin: 0; }
+  :root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<title>Privacy · Blu Odisseo</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Mulish:ital,wght@0,300;0,400;0,600;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root { --bg: #f7f6f2; --bg-2: #eeece6; --fg: #1b1f2a; --fg-2: #5a5f6d; --line: #d9d7cf; --accent: #1f3f80; --accent-2: #8aa0d1;
+    --font-display: "Italiana", "Didot", Georgia, serif; --font-body: "Mulish", "Avenir Next", system-ui, sans-serif; --font-mono: "IBM Plex Mono", Menlo, monospace; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0e1422; --bg-2: #151c2e; --fg: #e9e7e0; --fg-2: #a2a6b3; --line: #2a3246; --accent: #a9bdf0; --accent-2: #4a6cb8; color-scheme: dark; } }
+  :root[data-theme="dark"] { --bg: #0e1422; --bg-2: #151c2e; --fg: #e9e7e0; --fg-2: #a2a6b3; --line: #2a3246; --accent: #a9bdf0; --accent-2: #4a6cb8; color-scheme: dark; }
+  body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.65; font-weight: 300; -webkit-font-smoothing: antialiased; }
+  [data-lang="en"] .it, [data-lang="en"] .fr { display: none !important; }
+  [data-lang="it"] .en, [data-lang="it"] .fr { display: none !important; }
+  [data-lang="fr"] .it, [data-lang="fr"] .en { display: none !important; }
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--bg) 86%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .top-inner { max-width: 1080px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .brand { font-family: var(--font-display); font-size: 22px; letter-spacing: 0.08em; white-space: nowrap; }
+  .lang { display: inline-flex; border: 1px solid var(--line); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; }
+  .lang button { background: transparent; border: 0; color: var(--fg-2); padding: 6px 10px; cursor: pointer; font: inherit; }
+  .lang button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+  main { max-width: 1080px; margin: 0 auto; padding-block: 64px 80px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; grid-template-columns: 220px 1fr; gap: 32px 56px; }
+  @media (max-width: 860px) { main { grid-template-columns: 1fr; } }
+  .head { display: grid; gap: 10px; align-content: start; }
+  .eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-2); }
+  h1 { font-family: var(--font-display); font-weight: 400; font-size: 38px; line-height: 1.05; margin: 0; }
+  h2 { font-family: var(--font-display); font-weight: 400; font-size: 26px; line-height: 1.15; margin: 28px 0 10px; }
+  .prose { max-width: 68ch; min-width: 0; }
+  .prose p, .prose li { margin: 0 0 12px; }
+  .prose ul { padding-left: 20px; margin: 0 0 12px; }
+  .prose .link { border-bottom: 1px solid var(--accent-2); }
+  .prose .link:hover { color: var(--accent); }
+  .meta { font-family: var(--font-mono); font-size: 12px; color: var(--fg-2); margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--line); }
+  footer { border-top: 1px solid var(--line); }
+  .foot-inner { max-width: 1080px; margin: 0 auto; padding-block: 36px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 32px; font-size: 14px; color: var(--fg-2); }
+  .foot-inner a { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+<script>
+  (function () {
+    var lang = 'it';
+    try { var nl = (navigator.language || 'it').toLowerCase(); lang = localStorage.getItem('et-lang') || (nl.indexOf('it') === 0 ? 'it' : nl.indexOf('fr') === 0 ? 'fr' : 'en'); } catch (e) {}
+    document.documentElement.setAttribute('data-lang', lang === 'en' ? 'en' : lang === 'fr' ? 'fr' : 'it');
+  })();
+</script>
+
+<header class="top">
+  <div class="top-inner">
+    <a class="brand" href="/">E. Tacconi</a>
+    <div class="lang" role="group" aria-label="Lingua">
+      <button type="button" id="langIt" aria-pressed="true">IT</button>
+      <button type="button" id="langEn" aria-pressed="false">EN</button>
+      <button type="button" id="langFr" aria-pressed="false">FR</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="head">
+    <div class="eyebrow">Privacy</div>
+    <h1><span class="it">Informativa sulla privacy</span><span class="en">Privacy notice</span><span class="fr">Politique de confidentialité</span></h1>
+  </div>
+
+  <div class="prose it">
+    <p>Questa informativa descrive come vengono trattati i dati personali dei visitatori del sito bluodisseo.com, ai sensi del Regolamento (UE) 2016/679 (Regolamento generale sulla protezione dei dati, GDPR) e del D.Lgs. 196/2003 come modificato dal D.Lgs. 101/2018.</p>
+
+    <h2>Titolare del trattamento</h2>
+    <p>Explorer Training S.r.l., Via Vetriano 5, 51010 Massa e Cozzile (PT), Italia. Partita IVA 02310160979. Contatto: <a class="link" href="mailto:e.tacconi@bluodisseo.com">e.tacconi@bluodisseo.com</a>.</p>
+
+    <h2>Dati raccolti e finalità</h2>
+    <p><strong>Modulo di contatto.</strong> Se compili il modulo nella sezione Contact, vengono raccolti nome, indirizzo e-mail, eventuale nome del brand o dell'azienda e il contenuto del messaggio. I dati sono usati esclusivamente per rispondere alla tua richiesta e per l'eventuale successiva corrispondenza professionale. Base giuridica: esecuzione di misure precontrattuali adottate su tua richiesta (art. 6, par. 1, lett. b GDPR). I dati sono conservati per il tempo necessario a gestire la richiesta e comunque non oltre 24 mesi dall'ultimo contatto, salvo che si instauri un rapporto professionale.</p>
+    <p><strong>Dati di navigazione.</strong> I sistemi informatici che ospitano il sito raccolgono, nel normale funzionamento, alcuni dati tecnici (indirizzo IP, tipo di browser, orario della richiesta) necessari a erogare il servizio e a garantirne la sicurezza. Base giuridica: legittimo interesse del titolare (art. 6, par. 1, lett. f GDPR). Non sono usati per identificare i visitatori.</p>
+
+    <h2>Fornitori e servizi di terze parti</h2>
+    <p>Il sito è ospitato da <strong>Netlify, Inc.</strong> (San Francisco, USA), che gestisce anche la ricezione dei messaggi inviati tramite il modulo di contatto. Il trasferimento dei dati negli Stati Uniti avviene sulla base del Data Privacy Framework UE-USA e delle clausole contrattuali standard adottate dal fornitore.</p>
+    <p>Alcune sezioni del sito incorporano contenuti di servizi terzi che, quando vengono caricati, possono ricevere il tuo indirizzo IP e impostare propri cookie secondo le rispettive informative:</p>
+    <ul>
+      <li><strong>YouTube</strong> (Google Ireland Ltd.), per il player video, caricato in modalità a privacy rafforzata: nessun cookie viene impostato finché non avvii la riproduzione. <a class="link" href="https://policies.google.com/privacy" target="_blank" rel="noopener">Informativa Google</a>.</li>
+      <li><strong>Google Fonts</strong> (Google Ireland Ltd.), per i caratteri tipografici.</li>
+      <li><strong>Behold</strong> (Behold Software), per la visualizzazione dei post pubblici del profilo Instagram. <a class="link" href="https://behold.so/privacy/" target="_blank" rel="noopener">Informativa Behold</a>.</li>
+      <li><strong>Substack</strong> (Substack Inc.), per il modulo di iscrizione alla newsletter: l'indirizzo che inserisci è trattato da Substack come titolare autonomo. <a class="link" href="https://substack.com/privacy" target="_blank" rel="noopener">Informativa Substack</a>.</li>
+    </ul>
+    <p>I link verso Fragrantica, Instagram, YouTube, Substack e altri siti esterni portano a servizi con proprie informative, non controllate dal titolare.</p>
+
+    <h2>Cookie</h2>
+    <p>Il sito non utilizza cookie propri di profilazione né strumenti di analisi del traffico. L'unica informazione memorizzata nel browser è la lingua selezionata (IT, EN, FR), salvata localmente per comodità e mai trasmessa al titolare. I servizi terzi elencati sopra possono impostare cookie tecnici o di terze parti nei limiti descritti nelle rispettive informative.</p>
+
+    <h2>Diritti dell'interessato</h2>
+    <p>Puoi in qualsiasi momento chiedere l'accesso ai tuoi dati, la rettifica, la cancellazione, la limitazione del trattamento, la portabilità, oppure opporti al trattamento, scrivendo a <a class="link" href="mailto:e.tacconi@bluodisseo.com">e.tacconi@bluodisseo.com</a>. Hai inoltre il diritto di proporre reclamo al Garante per la protezione dei dati personali (<a class="link" href="https://www.garanteprivacy.it" target="_blank" rel="noopener">garanteprivacy.it</a>).</p>
+
+    <h2>Minori</h2>
+    <p>Il sito non è destinato a minori di 14 anni e il titolare non raccoglie consapevolmente dati di minori.</p>
+
+    <p class="meta">Ultimo aggiornamento: 27 ottobre 2026.</p>
+  </div>
+
+  <div class="prose en">
+    <p>This notice explains how the personal data of visitors to bluodisseo.com is processed, pursuant to Regulation (EU) 2016/679 (General Data Protection Regulation, GDPR) and Italian Legislative Decree 196/2003 as amended by Legislative Decree 101/2018.</p>
+
+    <h2>Data controller</h2>
+    <p>Explorer Training S.r.l., Via Vetriano 5, 51010 Massa e Cozzile (PT), Italy. VAT number IT02310160979. Contact: <a class="link" href="mailto:e.tacconi@bluodisseo.com">e.tacconi@bluodisseo.com</a>.</p>
+
+    <h2>Data collected and purposes</h2>
+    <p><strong>Contact form.</strong> If you fill in the form in the Contact section, we collect your name, e-mail address, the brand or company name if provided, and the content of your message. This data is used solely to reply to your request and for any subsequent professional correspondence. Legal basis: steps taken at your request prior to entering into a contract (Art. 6(1)(b) GDPR). Data is kept for as long as needed to handle the request and in any case no longer than 24 months from the last contact, unless a professional relationship is established.</p>
+    <p><strong>Browsing data.</strong> The systems hosting the site collect, in their normal operation, certain technical data (IP address, browser type, time of request) needed to deliver the service and keep it secure. Legal basis: legitimate interest of the controller (Art. 6(1)(f) GDPR). This data is not used to identify visitors.</p>
+
+    <h2>Providers and third-party services</h2>
+    <p>The site is hosted by <strong>Netlify, Inc.</strong> (San Francisco, USA), which also handles messages sent through the contact form. Data transfers to the United States rely on the EU-US Data Privacy Framework and the standard contractual clauses adopted by the provider.</p>
+    <p>Some sections of the site embed content from third-party services which, when loaded, may receive your IP address and set their own cookies under their respective policies:</p>
+    <ul>
+      <li><strong>YouTube</strong> (Google Ireland Ltd.), for the video player, loaded in privacy-enhanced mode: no cookie is set until you start playback. <a class="link" href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google privacy policy</a>.</li>
+      <li><strong>Google Fonts</strong> (Google Ireland Ltd.), for typefaces.</li>
+      <li><strong>Behold</strong> (Behold Software), to display public posts from the Instagram profile. <a class="link" href="https://behold.so/privacy/" target="_blank" rel="noopener">Behold privacy policy</a>.</li>
+      <li><strong>Substack</strong> (Substack Inc.), for the newsletter sign-up form: the address you enter is processed by Substack as an independent controller. <a class="link" href="https://substack.com/privacy" target="_blank" rel="noopener">Substack privacy policy</a>.</li>
+    </ul>
+    <p>Links to Fragrantica, Instagram, YouTube, Substack and other external sites lead to services with their own policies, outside the controller's responsibility.</p>
+
+    <h2>Cookies</h2>
+    <p>The site does not use its own profiling cookies or traffic analytics tools. The only information stored in your browser is the selected language (IT, EN, FR), saved locally for convenience and never transmitted to the controller. The third-party services listed above may set technical or third-party cookies within the limits described in their policies.</p>
+
+    <h2>Your rights</h2>
+    <p>You may at any time request access to your data, rectification, erasure, restriction of processing or portability, or object to processing, by writing to <a class="link" href="mailto:e.tacconi@bluodisseo.com">e.tacconi@bluodisseo.com</a>. You also have the right to lodge a complaint with the Italian Data Protection Authority (<a class="link" href="https://www.garanteprivacy.it" target="_blank" rel="noopener">garanteprivacy.it</a>) or with the supervisory authority of your country.</p>
+
+    <h2>Minors</h2>
+    <p>The site is not intended for children under 14 and the controller does not knowingly collect data from minors.</p>
+
+    <p class="meta">Last updated: 27 October 2026.</p>
+  </div>
+
+  <div class="prose fr">
+    <p>La présente politique décrit le traitement des données personnelles des visiteurs du site bluodisseo.com, conformément au Règlement (UE) 2016/679 (Règlement général sur la protection des données, RGPD) et au décret législatif italien 196/2003 modifié par le décret législatif 101/2018.</p>
+
+    <h2>Responsable du traitement</h2>
+    <p>Explorer Training S.r.l., Via Vetriano 5, 51010 Massa e Cozzile (PT), Italie. Numéro de TVA IT02310160979. Contact : <a class="link" href="mailto:e.tacconi@bluodisseo.com">e.tacconi@bluodisseo.com</a>.</p>
+
+    <h2>Données collectées et finalités</h2>
+    <p><strong>Formulaire de contact.</strong> Si vous remplissez le formulaire de la section Contact, nous collectons votre nom, votre adresse e-mail, le nom de la marque ou de l'entreprise le cas échéant, et le contenu de votre message. Ces données servent uniquement à répondre à votre demande et à la correspondance professionnelle qui pourrait suivre. Base juridique : mesures précontractuelles prises à votre demande (art. 6, par. 1, point b du RGPD). Les données sont conservées le temps nécessaire au traitement de la demande et au plus 24 mois après le dernier contact, sauf établissement d'une relation professionnelle.</p>
+    <p><strong>Données de navigation.</strong> Les systèmes qui hébergent le site collectent, dans leur fonctionnement normal, certaines données techniques (adresse IP, type de navigateur, heure de la requête) nécessaires à la fourniture du service et à sa sécurité. Base juridique : intérêt légitime du responsable (art. 6, par. 1, point f du RGPD). Elles ne servent pas à identifier les visiteurs.</p>
+
+    <h2>Prestataires et services tiers</h2>
+    <p>Le site est hébergé par <strong>Netlify, Inc.</strong> (San Francisco, États-Unis), qui gère également la réception des messages envoyés via le formulaire de contact. Le transfert des données vers les États-Unis repose sur le Data Privacy Framework UE-États-Unis et sur les clauses contractuelles types adoptées par le prestataire.</p>
+    <p>Certaines sections du site intègrent des contenus de services tiers qui, lors de leur chargement, peuvent recevoir votre adresse IP et déposer leurs propres cookies selon leurs politiques respectives :</p>
+    <ul>
+      <li><strong>YouTube</strong> (Google Ireland Ltd.), pour le lecteur vidéo, chargé en mode de confidentialité renforcée : aucun cookie n'est déposé avant le lancement de la lecture. <a class="link" href="https://policies.google.com/privacy" target="_blank" rel="noopener">Politique de Google</a>.</li>
+      <li><strong>Google Fonts</strong> (Google Ireland Ltd.), pour les polices de caractères.</li>
+      <li><strong>Behold</strong> (Behold Software), pour l'affichage des publications publiques du profil Instagram. <a class="link" href="https://behold.so/privacy/" target="_blank" rel="noopener">Politique de Behold</a>.</li>
+      <li><strong>Substack</strong> (Substack Inc.), pour le formulaire d'abonnement à la newsletter : l'adresse saisie est traitée par Substack en tant que responsable autonome. <a class="link" href="https://substack.com/privacy" target="_blank" rel="noopener">Politique de Substack</a>.</li>
+    </ul>
+    <p>Les liens vers Fragrantica, Instagram, YouTube, Substack et d'autres sites externes renvoient à des services dotés de leurs propres politiques, hors du contrôle du responsable.</p>
+
+    <h2>Cookies</h2>
+    <p>Le site n'utilise ni cookies de profilage propres ni outils d'analyse d'audience. La seule information stockée dans votre navigateur est la langue choisie (IT, EN, FR), enregistrée localement pour votre confort et jamais transmise au responsable. Les services tiers listés ci-dessus peuvent déposer des cookies techniques ou tiers dans les limites décrites par leurs politiques.</p>
+
+    <h2>Vos droits</h2>
+    <p>Vous pouvez à tout moment demander l'accès à vos données, leur rectification, leur effacement, la limitation du traitement ou leur portabilité, ou vous opposer au traitement, en écrivant à <a class="link" href="mailto:e.tacconi@bluodisseo.com">e.tacconi@bluodisseo.com</a>. Vous avez également le droit d'introduire une réclamation auprès de l'autorité italienne de protection des données (<a class="link" href="https://www.garanteprivacy.it" target="_blank" rel="noopener">garanteprivacy.it</a>) ou de l'autorité de contrôle de votre pays.</p>
+
+    <h2>Mineurs</h2>
+    <p>Le site ne s'adresse pas aux mineurs de moins de 14 ans et le responsable ne collecte pas sciemment de données de mineurs.</p>
+
+    <p class="meta">Dernière mise à jour : 27 octobre 2026.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <div>© <span id="year">2026</span> Edoardo Tacconi · Explorer Training S.r.l. · P.IVA 02310160979</div>
+    <a href="/"><span class="it">Torna al sito</span><span class="en">Back to the site</span><span class="fr">Retour au site</span></a>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    function setLang(l) {
+      root.setAttribute('data-lang', l);
+      ['It','En','Fr'].forEach(function (k) { document.getElementById('lang' + k).setAttribute('aria-pressed', l === k.toLowerCase() ? 'true' : 'false'); });
+      try { localStorage.setItem('et-lang', l); } catch (e) {}
+    }
+    setLang(['en','fr'].indexOf(root.getAttribute('data-lang')) >= 0 ? root.getAttribute('data-lang') : 'it');
+    document.getElementById('langIt').addEventListener('click', function () { setLang('it'); });
+    document.getElementById('langEn').addEventListener('click', function () { setLang('en'); });
+    document.getElementById('langFr').addEventListener('click', function () { setLang('fr'); });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  })();
+</script>
+
+</body>
+</html>

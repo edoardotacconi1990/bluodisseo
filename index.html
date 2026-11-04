@@ -258,10 +258,31 @@
   .service .d { display: grid; gap: 10px; color: var(--fg-2); font-size: 16px; }
   .service .d p { max-width: 60ch; }
   @media (max-width: 640px) { .service { grid-template-columns: 1fr; } }
-  .cta { display: inline-block; margin-top: 8px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bg); background: var(--fg); padding: 12px 20px; border: 1px solid var(--fg); cursor: pointer; }
+  .cta { display: inline-block; width: max-content; margin-top: 8px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bg); background: var(--fg); padding: 12px 20px; border: 1px solid var(--fg); cursor: pointer; }
   .cta.ghost { background: transparent; color: var(--fg); }
   .cta:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
 
+  /* Servizi: offerta, percorso, prova sociale, inviti */
+  .offer { margin: 0 0 14px; display: grid; gap: 8px; }
+  .offer dt { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-2); }
+  .offer dd { margin: 0 0 6px; color: var(--fg); font-size: 16px; }
+  .steps { list-style: none; counter-reset: step; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--line); max-width: 68ch; }
+  .steps li { counter-increment: step; display: grid; grid-template-columns: 44px 1fr; gap: 4px 16px; padding-block: 14px; border-bottom: 1px solid var(--line); }
+  .steps li::before { content: counter(step, decimal-leading-zero); grid-row: 1 / span 2; font-family: var(--font-mono); font-size: 12px; color: var(--accent); padding-top: 4px; font-variant-numeric: tabular-nums; }
+  .steps strong { font-family: var(--font-display); font-weight: 400; font-size: 22px; line-height: 1.1; }
+  .steps span { color: var(--fg-2); font-size: 15px; }
+  .timing { max-width: 68ch; font-size: 15px; color: var(--fg-2); display: grid; gap: 4px; }
+  .timing .k { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .proof { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-2); max-width: 68ch; line-height: 1.9; }
+  .invite { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; }
+  .invite p { font-family: var(--font-display); font-size: 24px; line-height: 1.2; max-width: 30ch; }
+  .hero .offer-line { font-size: 16px; color: var(--fg); margin-top: -10px; max-width: 56ch; }
+  .top-cta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--bg); background: var(--fg); padding: 7px 12px; border: 1px solid var(--fg); white-space: nowrap; }
+  .top-cta:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+  @media (max-width: 720px) { .top-cta { padding: 6px 9px; font-size: 10px; letter-spacing: 0.12em; } .top-right > .lang { display: none; } }
+  nav.mobile .lang-row { display: flex; gap: 8px; padding: 12px 0 4px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; }
+  nav.mobile .lang-row button { background: transparent; border: 1px solid var(--line); color: var(--fg-2); padding: 6px 10px; cursor: pointer; font: inherit; }
+  nav.mobile .lang-row button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
   /* Contact */
   .contact-wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 32px 48px; }
   @media (max-width: 760px) { .contact-wrap { grid-template-columns: 1fr; } }
@@ -347,13 +368,14 @@
     <a class="brand" href="#top">E. Tacconi</a>
     <nav class="main" aria-label="Sezioni">
       <a href="#about">About</a>
-      <a href="#manifesto">Manifesto</a>
-      <a href="#creations">Creations</a>
       <a href="#work">Work with me</a>
+      <a href="#creations">Creations</a>
+      <a href="#manifesto">Manifesto</a>
       <a href="#contact">Contact</a>
       <a href="#press">Post &amp; Press</a>
     </nav>
     <div class="top-right">
+      <a class="top-cta" href="#contact"><span class="it">Contattami</span><span class="en">Contact me</span><span class="fr">Contactez-moi</span></a>
       <div class="lang" role="group" aria-label="Lingua">
         <button type="button" id="langIt" aria-pressed="true">IT</button>
         <button type="button" id="langEn" aria-pressed="false">EN</button>
@@ -364,11 +386,14 @@
   </div>
   <nav class="mobile" id="mobileNav" aria-label="Sezioni" hidden>
     <a href="#about">About</a>
-    <a href="#manifesto">Manifesto</a>
-    <a href="#creations">Creations</a>
     <a href="#work">Work with me</a>
+    <a href="#creations">Creations</a>
+    <a href="#manifesto">Manifesto</a>
     <a href="#contact">Contact</a>
     <a href="#press">Post &amp; Press</a>
+    <div class="lang-row" role="group" aria-label="Lingua">
+      <button type="button" data-lang="it">IT</button><button type="button" data-lang="en">EN</button><button type="button" data-lang="fr">FR</button>
+    </div>
   </nav>
 </header>
 
@@ -381,6 +406,7 @@
     <div class="subname">Blu Odisseo</div>
     <p class="lede it">Profumiere e biologo. Compongo fragranze per brand di profumeria artistica.</p>
     <p class="lede en">Perfumer and biologist. I compose fragrances for artistic perfumery brands.</p><p class="lede fr">Parfumeur et biologiste. Je compose des fragrances pour des marques de parfumerie artistique.</p>
+    <p class="offer-line it">Fragranze su misura con firma del profumiere, dal brief alla produzione.</p><p class="offer-line en">Bespoke fragrances with the perfumer's signature, from brief to production.</p><p class="offer-line fr">Fragrances sur mesure signées du parfumeur, du brief à la production.</p>
     <div class="tags">
       <span>Fine fragrance</span>
       <span><span class="it">Divulgazione scientifica</span><span class="en">Science communication</span><span class="fr">Vulgarisation scientifique</span></span>
@@ -403,17 +429,17 @@
       <div class="prose it">
         <p>Sono Edoardo Tacconi, profumiere junior collaboratore della prestigiosa casa essenziera <a class="link" href="https://www.farotti.com" target="_blank" rel="noopener">Farotti Essenze</a> di Rimini: creo fragranze per brand che vogliono un profumo con una firma riconoscibile e racconto il lavoro di laboratorio sul canale Blu Odisseo di <a class="link" href="https://www.instagram.com/blu.odisseo/" target="_blank" rel="noopener">Instagram</a> e <a class="link" href="https://www.youtube.com/c/edoardotacconi" target="_blank" rel="noopener">YouTube</a>, dove promuovo la divulgazione olfattiva scientifica, analizzo ed eseguo formule di profumeria.</p>
         <p>Nato nel 1990 e da sempre dedito alla musica, ho studiato pianoforte insieme a batteria e percussioni jazz/fusion presso la Scuola Verdi di Prato. Dopo un periodo in cui ho messo da parte la musica per conseguire la laurea in Scienze Biologiche e lavorare in campo scientifico, ho riscoperto l'arte attraverso una profonda passione per la profumeria.</p>
-        <p>All'inizio del 2022 ho iniziato a studiare come profumiere autodidatta e ho affinato le mie abilità presso <a class="link" href="https://www.ateneodellolfatto.com" target="_blank" rel="noopener">Ateneo dell'Olfatto</a>, dove attualmente sono docente.</p>
+        <p>All'inizio del 2022 ho iniziato a studiare come profumiere autodidatta e ho affinato le mie abilità presso <a class="link" href="https://www.ateneodellolfatto.com" target="_blank" rel="noopener">Ateneo dell'Olfatto</a>, dove attualmente sono docente. Dal 2024 faccio divulgazione sui social nel settore della profumeria.</p>
       </div>
       <div class="prose en">
         <p>I am Edoardo Tacconi, junior perfumer working with the renowned fragrance house <a class="link" href="https://www.farotti.com" target="_blank" rel="noopener">Farotti Essenze</a> in Rimini: I create fragrances for brands that want a perfume with a recognisable signature, and I share the laboratory side of the work on the Blu Odisseo channel on <a class="link" href="https://www.instagram.com/blu.odisseo/" target="_blank" rel="noopener">Instagram</a> and <a class="link" href="https://www.youtube.com/c/edoardotacconi" target="_blank" rel="noopener">YouTube</a>, where I promote science-based olfactory education and analyse and execute perfumery formulas.</p>
         <p>Born in 1990 and devoted to music from an early age, I studied piano together with drums and jazz/fusion percussion at Verdi music school in Prato. After a period in which I set music aside to complete a degree in Biological Sciences and work in the scientific field, I rediscovered art through a deep passion for perfumery.</p>
-        <p>At the beginning of 2022 I began studying as a self-taught perfumer and refined my skills at <a class="link" href="https://www.ateneodellolfatto.com" target="_blank" rel="noopener">Ateneo dell'Olfatto</a>, where I currently teach.</p>
+        <p>At the beginning of 2022 I began studying as a self-taught perfumer and refined my skills at <a class="link" href="https://www.ateneodellolfatto.com" target="_blank" rel="noopener">Ateneo dell'Olfatto</a>, where I currently teach. Since 2024 I have been sharing perfumery content on social media.</p>
       </div>
       <div class="prose fr">
         <p>Je suis Edoardo Tacconi, parfumeur junior collaborateur de la prestigieuse maison de compositions <a class="link" href="https://www.farotti.com" target="_blank" rel="noopener">Farotti Essenze</a>, à Rimini : je crée des fragrances pour des marques qui veulent un parfum à la signature reconnaissable, et je raconte le travail de laboratoire sur la chaîne Blu Odisseo, sur <a class="link" href="https://www.instagram.com/blu.odisseo/" target="_blank" rel="noopener">Instagram</a> et <a class="link" href="https://www.youtube.com/c/edoardotacconi" target="_blank" rel="noopener">YouTube</a>, où je promeus la vulgarisation olfactive scientifique, j'analyse et j'exécute des formules de parfumerie.</p>
         <p>Né en 1990 et depuis toujours voué à la musique, j'ai étudié le piano ainsi que la batterie et les percussions jazz/fusion à la Scuola Verdi de Prato. Après une période où j'ai mis la musique de côté pour obtenir mon master en sciences biologiques et travailler dans le domaine scientifique, j'ai redécouvert l'art à travers une passion profonde pour la parfumerie.</p>
-        <p>Au début de l'année 2022, j'ai commencé à étudier en parfumeur autodidacte et j'ai affiné mes compétences à <a class="link" href="https://www.ateneodellolfatto.com" target="_blank" rel="noopener">Ateneo dell'Olfatto</a>, où j'enseigne aujourd'hui.</p>
+        <p>Au début de l'année 2022, j'ai commencé à étudier en parfumeur autodidacte et j'ai affiné mes compétences à <a class="link" href="https://www.ateneodellolfatto.com" target="_blank" rel="noopener">Ateneo dell'Olfatto</a>, où j'enseigne aujourd'hui. Depuis 2024, je fais de la vulgarisation sur les réseaux sociaux dans le domaine de la parfumerie.</p>
       </div>
 
       <div>
@@ -425,52 +451,75 @@
     </div>
   </section>
 
-  <!-- MANIFESTO -->
-  <section class="block" id="manifesto">
+
+
+
+  <!-- WORK WITH ME -->
+  <section class="block" id="work">
     <div class="head">
-      <div class="eyebrow">Manifesto</div>
-      <h2>Blu Odisseo</h2>
+      <div class="eyebrow">Work with me</div>
+      <h2><span class="it">Servizi</span><span class="en">Services</span><span class="fr">Services</span></h2>
+      <p class="it" style="color:var(--fg-2);font-size:15px">Una fragranza esclusiva per il brand, con il nome del profumiere e la formula di proprietà del committente.</p>
+      <p class="en" style="color:var(--fg-2);font-size:15px">An exclusive fragrance for the brand, with the perfumer's name and a formula owned by the client.</p><p class="fr" style="color:var(--fg-2);font-size:15px">Une fragrance exclusive pour la marque, avec le nom du parfumeur et une formule qui appartient au commanditaire.</p>
     </div>
     <div class="body">
-      <div class="prose manifesto it">
-        <p>Il blu è il colore del mare aperto, ma anche quello della malinconia di chi lascia un approdo per un altro, senza mai dimenticare.</p>
-        <p>Odisseo sono io, o forse, lo siamo tutti, non eroi perfetti e irreprensibili, né uomini sicuri del tragitto, ma viaggiatori mossi dal desiderio di scoperta e dall'impulso ad esplorare.</p>
-        <p>Odisseo sono io, perché il mio percorso non è mai stato lineare, la musica, la giurisprudenza, poi la biologia, la ricerca, la divulgazione e, infine, la profumeria.</p>
-        <p>Ad ogni approdo ho dedicato molto del mio tempo e tutta la mia dedizione. Ogni esperienza mi accompagna di fronte al mio organo, dentro di me e in tutto ciò che, attraverso le mie creazioni, restituisco al mondo.</p>
-        <p>La profumeria è un'arte. Non lo dico per nobilitarla, lo dico perché un profumo nasce sempre da un'intuizione, da quel momento estatico qual è l'ispirazione, per prendere poi forma attraverso la tecnica, necessaria affinché si dia ordine e armonia a ciò che, in origine, esiste soltanto come possibilità.</p>
-        <p class="tight">Il profumiere sta a metà tra i due mondi.</p>
-        <p class="tight">Quello della scienza, con le molecole e le loro regole, con la complessità e la schiettezza degli olii e resine naturali, ciascuno nel proprio equilibrio.</p>
-        <p>Quello dell'arte, che prende forma nel caos fertile della mente, tra stupore, emozioni e l'irrefrenabile voglia di dar loro voce.</p>
-        <p class="tight">Ogni fragranza che compongo per un brand è pensata come un viaggio.</p>
-        <p class="tight">Ha un punto di partenza, un attraversamento e un approdo.</p>
-        <p>E ogni approdo sarà, ancora una volta, una nuova partenza.</p>
+      <div class="services">
+        <div class="service">
+          <div>
+            <h3><span class="it">Fragranze su misura per brand</span><span class="en">Bespoke fragrances for brands</span><span class="fr">Fragrances sur mesure pour les marques</span></h3>
+            <span class="k">Fine fragrance</span>
+          </div>
+          <div class="d">
+            <dl class="offer it">
+              <dt>Per chi</dt><dd>Profumeria artistica, moda, hôtellerie, cosmetica.</dd>
+              <dt>Cosa riceve il committente</dt><dd>Una formula esclusiva, creata a partire dal brief e ceduta in proprietà; la firma del profumiere nei materiali del brand; controllo regolatorio a cura di Farotti Essenze.</dd>
+            </dl>
+            <dl class="offer en">
+              <dt>For whom</dt><dd>Artistic perfumery, fashion, hospitality, cosmetics.</dd>
+              <dt>What the client receives</dt><dd>An exclusive formula, created from the brief and transferred in full ownership; the perfumer's signature in the brand's materials; regulatory review by Farotti Essenze.</dd>
+            </dl>
+            <dl class="offer fr">
+              <dt>Pour qui</dt><dd>Parfumerie artistique, mode, hôtellerie, cosmétique.</dd>
+              <dt>Ce que reçoit le commanditaire</dt><dd>Une formule exclusive, créée à partir du brief et cédée en pleine propriété ; la signature du parfumeur dans les supports de la marque ; contrôle réglementaire assuré par Farotti Essenze.</dd>
+            </dl>
+            <p class="it">La firma del profumiere entra nel racconto della fragranza fin dal principio e crea un legame diretto con il consumatore finale: un nome e un volto, ma soprattutto un metodo, consolidato dagli oltre 50 anni di esperienza di Farotti Essenze, che il brand può condividere con chi lo sceglie.</p>
+            <p class="en">The perfumer's signature enters the fragrance's story from the very beginning and creates a direct bond with the end customer: a name and a face, but above all a method, backed by more than 50 years of experience at Farotti Essenze, that the brand can share with those who choose it.</p><p class="fr">La signature du parfumeur entre dans le récit de la fragrance dès l'origine et crée un lien direct avec le consommateur final : un nom et un visage, mais surtout une méthode, consolidée par plus de 50 ans d'expérience de Farotti Essenze, que la marque peut partager avec ceux qui la choisissent.</p>
+          </div>
+        </div>
       </div>
-      <div class="prose manifesto en">
-        <p>Blue is the colour of the open sea, but also of the melancholy of those who leave one harbour for another, without ever forgetting.</p>
-        <p>Odysseus is me, or perhaps all of us, not perfect, irreproachable heroes, nor men certain of the route, but travellers driven by the desire for discovery and the urge to explore.</p>
-        <p>Odysseus is me, because my path has never been linear, music, law, then biology, research, science communication and, finally, perfumery.</p>
-        <p>To every landing I gave much of my time and all of my devotion. Every experience accompanies me in front of my perfumer's organ, within me and in everything that, through my creations, I give back to the world.</p>
-        <p>Perfumery is an art. I do not say so to ennoble it, I say so because a perfume is always born from an intuition, from that ecstatic moment that is inspiration, and then takes shape through technique, necessary so that order and harmony may be given to what, at the origin, exists only as possibility.</p>
-        <p class="tight">The perfumer stands halfway between the two worlds.</p>
-        <p class="tight">The world of chemistry, with molecules and their rules, with the complexity and frankness of natural oils and resins, each in its own balance.</p>
-        <p>The world of art, which takes shape in the fertile chaos of the mind, between wonder, emotions and the irrepressible urge to give them a voice.</p>
-        <p class="tight">Every fragrance I compose for a brand is conceived as a journey.</p>
-        <p class="tight">It has a point of departure, a crossing and a landing.</p>
-        <p>And every landing will be, once again, a new departure.</p>
-      </div>
-      <div class="prose manifesto fr">
-        <p>Le bleu est la couleur de la haute mer, mais aussi celle de la mélancolie de qui quitte un rivage pour un autre, sans jamais oublier.</p>
-        <p>Ulysse, c'est moi, ou peut-être nous tous, non pas des héros parfaits et irréprochables, ni des hommes sûrs de leur route, mais des voyageurs mus par le désir de découverte et par l'élan d'explorer.</p>
-        <p>Ulysse, c'est moi, parce que mon parcours n'a jamais été linéaire, la musique, le droit, puis la biologie, la recherche, la vulgarisation et, enfin, la parfumerie.</p>
-        <p>À chaque escale, j'ai consacré beaucoup de mon temps et tout mon dévouement. Chaque expérience m'accompagne devant mon orgue à parfums, en moi et dans tout ce que, à travers mes créations, je rends au monde.</p>
-        <p>La parfumerie est un art. Je ne le dis pas pour l'ennoblir, je le dis parce qu'un parfum naît toujours d'une intuition, de cet instant extatique qu'est l'inspiration, pour prendre ensuite forme à travers la technique, nécessaire afin de donner ordre et harmonie à ce qui, à l'origine, n'existe que comme possibilité.</p>
-        <p class="tight">Le parfumeur se tient à mi-chemin entre deux mondes.</p>
-        <p class="tight">Le monde de la chimie, avec les molécules et leurs règles, avec la complexité et la franchise des huiles et des résines naturelles, chacune dans son propre équilibre.</p>
-        <p>Le monde de l'art, qui prend forme dans le chaos fertile de l'esprit, entre l'émerveillement, les émotions et l'irrépressible envie de leur donner une voix.</p>
-        <p class="tight">Chaque fragrance que je compose pour une marque est pensée comme un voyage.</p>
-        <p class="tight">Elle a un point de départ, une traversée et une escale.</p>
-        <p>Et chaque escale sera, une fois encore, un nouveau départ.</p>
-      </div>
+
+      <div class="sub"><span class="it">Il percorso</span><span class="en">The process</span><span class="fr">Le parcours</span></div>
+      <ol class="steps it">
+        <li><strong>Brief</strong><span>Un incontro per definire identità del brand, pubblico, famiglia olfattiva e riferimenti.</span></li>
+        <li><strong>Prime proposte</strong><span>Tre direzioni olfattive da valutare su mouillette e sulla pelle.</span></li>
+        <li><strong>Modifiche</strong><span>La direzione scelta viene affinata, passo dopo passo, fino alla versione definitiva.</span></li>
+        <li><strong>Regolatorio</strong><span>Farotti Essenze verifica la formula secondo le normative del mercato di destinazione.</span></li>
+        <li><strong>Cessione della formula</strong><span>La formula definitiva viene venduta al committente, che ne diventa proprietario.</span></li>
+        <li><strong>Produzione</strong><span>Il committente affida la produzione all'azienda che preferisce. Il profumiere rimane disponibile a interfacciarsi con qualsiasi produttore scelto.</span></li>
+      </ol>
+      <ol class="steps en">
+        <li><strong>Brief</strong><span>A meeting to define the brand's identity, audience, olfactive family and references.</span></li>
+        <li><strong>First proposals</strong><span>Three olfactive directions to evaluate on blotter and on skin.</span></li>
+        <li><strong>Modifications</strong><span>The chosen direction is refined, step by step, to the final version.</span></li>
+        <li><strong>Regulatory</strong><span>Farotti Essenze checks the formula against the regulations of the target market.</span></li>
+        <li><strong>Formula transfer</strong><span>The final formula is sold to the client, who becomes its owner.</span></li>
+        <li><strong>Production</strong><span>The client entrusts production to the manufacturer of its choice. The perfumer remains available to liaise with any producer selected.</span></li>
+      </ol>
+      <ol class="steps fr">
+        <li><strong>Brief</strong><span>Une rencontre pour définir l'identité de la marque, le public, la famille olfactive et les références.</span></li>
+        <li><strong>Premières propositions</strong><span>Trois directions olfactives à évaluer sur mouillette et sur la peau.</span></li>
+        <li><strong>Modifications</strong><span>La direction retenue est affinée, pas à pas, jusqu'à la version définitive.</span></li>
+        <li><strong>Réglementaire</strong><span>Farotti Essenze vérifie la formule selon la réglementation du marché de destination.</span></li>
+        <li><strong>Cession de la formule</strong><span>La formule définitive est vendue au commanditaire, qui en devient propriétaire.</span></li>
+        <li><strong>Production</strong><span>Le commanditaire confie la production au fabricant de son choix. Le parfumeur reste disponible pour dialoguer avec tout producteur retenu.</span></li>
+      </ol>
+      <p class="timing it"><span class="k">Tempi indicativi</span> Entro un mese le prime tre proposte; da 3 a 6 mesi per la chiusura del progetto.</p>
+      <p class="timing en"><span class="k">Indicative timing</span> First three proposals within one month; 3 to 6 months to complete the project.</p>
+      <p class="timing fr"><span class="k">Délais indicatifs</span> Les trois premières propositions sous un mois ; de 3 à 6 mois pour la clôture du projet.</p>
+
+      <p class="proof"><span class="it">Tre fragranze in commercio · Docente presso Ateneo dell'Olfatto · Profumiere junior presso Farotti Essenze</span><span class="en">Three fragrances on the market · Lecturer at Ateneo dell'Olfatto · Junior perfumer at Farotti Essenze</span><span class="fr">Trois fragrances sur le marché · Enseignant à Ateneo dell'Olfatto · Parfumeur junior chez Farotti Essenze</span></p>
+
+      <a class="cta" href="#contact"><span class="it">Contattami</span><span class="en">Contact me</span><span class="fr">Contactez-moi</span></a>
     </div>
   </section>
 
@@ -554,43 +603,61 @@
           <a class="go" href="https://www.fragrantica.it/perfume/Comedia/Comedia-Di-Mezza-Estate-104528.html" target="_blank" rel="noopener"><span class="it">Scheda su Fragrantica</span><span class="en">On Fragrantica</span><span class="fr">Fiche sur Fragrantica</span> →</a>
         </article>
       </div>
+      <div class="invite">
+        <p class="it">Vuoi una fragranza con la mia firma per il tuo brand?</p>
+        <p class="en">Would you like a fragrance with my signature for your brand?</p>
+        <p class="fr">Vous souhaitez une fragrance signée pour votre marque ?</p>
+        <a class="cta ghost" href="#contact"><span class="it">Contattami</span><span class="en">Contact me</span><span class="fr">Contactez-moi</span></a>
+      </div>
     </div>
   </section>
 
-  <!-- WORK WITH ME -->
-  <section class="block" id="work">
+  <!-- MANIFESTO -->
+  <section class="block" id="manifesto">
     <div class="head">
-      <div class="eyebrow">Work with me</div>
-      <h2><span class="it">Servizi</span><span class="en">Services</span><span class="fr">Services</span></h2>
-      <p class="it" style="color:var(--fg-2);font-size:15px">Dal brief alla formula finale, con controllo regolatorio ed eventuale produzione affidata a Farotti Essenze.</p>
-      <p class="en" style="color:var(--fg-2);font-size:15px">From brief to final formula, with regulatory review and, where required, production entrusted to Farotti Essenze.</p><p class="fr" style="color:var(--fg-2);font-size:15px">Du brief à la formule finale, avec contrôle réglementaire et, le cas échéant, production confiés à Farotti Essenze.</p>
+      <div class="eyebrow">Manifesto</div>
+      <h2>Blu Odisseo</h2>
     </div>
     <div class="body">
-      <div class="services">
-        <div class="service">
-          <div>
-            <h3><span class="it">Fragranze su misura per brand</span><span class="en">Bespoke fragrances for brands</span><span class="fr">Fragrances sur mesure pour les marques</span></h3>
-            <span class="k">Fine fragrance</span>
-          </div>
-          <div class="d">
-            <p class="it">Creazione di una fragranza con la mia firma per marchi di profumeria artistica, moda, hotellerie e cosmetica. Si parte da un brief olfattivo condiviso, si procede passo passo per modifiche valutate insieme, si chiude con la formula definitiva passando per il regolatorio di Farotti Essenze, affinché la fragranza abbia tutti gli standard aggiornati secondo le normative del mercato in cui verrà immessa.</p>
-            <p class="en">Creation of a fragrance with my signature for artistic perfumery, fashion, hospitality and cosmetics brands. We start from a shared olfactive brief, proceed step by step through modifications evaluated together, and close with the final formula, which passes through the regulatory department of Farotti Essenze so that the fragrance meets every current standard required by the market it will enter.</p><p class="fr">Création d'une fragrance portant ma signature pour des marques de parfumerie artistique, de mode, d'hôtellerie et de cosmétique. On part d'un brief olfactif partagé, on avance pas à pas par des modifications évaluées ensemble, et l'on conclut avec la formule définitive, qui passe par le service réglementaire de Farotti Essenze afin que la fragrance réponde à toutes les normes en vigueur sur le marché où elle sera mise en vente.</p>
-            <p class="it">La firma del profumiere entra nel racconto della fragranza fin dal principio e crea un legame diretto con il consumatore finale: un nome e un volto, ma soprattutto un metodo, consolidato dagli oltre 50 anni di esperienza di Farotti Essenze, che il brand può condividere con chi lo sceglie.</p>
-            <p class="en">The perfumer's signature enters the fragrance's story from the very beginning and creates a direct bond with the end customer: a name and a face, but above all a method, backed by more than 50 years of experience at Farotti Essenze, that the brand can share with those who choose it.</p><p class="fr">La signature du parfumeur entre dans le récit de la fragrance dès l'origine et crée un lien direct avec le consommateur final : un nom et un visage, mais surtout une méthode, consolidée par plus de 50 ans d'expérience de Farotti Essenze, que la marque peut partager avec ceux qui la choisissent.</p>
-          </div>
-        </div>
-        <div class="service">
-          <div>
-            <h3><span class="it">Divulgazione</span><span class="en">Science communication</span><span class="fr">Vulgarisation scientifique</span></h3>
-            <span class="k"><span class="it">Contenuti video e scritti</span><span class="en">Video and written content</span><span class="fr">Contenus vidéo et écrits</span></span>
-          </div>
-          <div class="d">
-            <p class="it">Contenuti video e scritti, attraverso i canali social, che raccontano a un pubblico di appassionati o professionale cosa c'è dietro la creazione e la formulazione di un profumo.</p>
-            <p class="en">Video and written content, through social channels, that shows an audience of enthusiasts or professionals what lies behind the creation and formulation of a perfume.</p><p class="fr">Des contenus vidéo et écrits, diffusés sur les réseaux sociaux, qui racontent à un public de passionnés ou de professionnels ce qui se cache derrière la création et la formulation d'un parfum.</p>
-          </div>
-        </div>
+      <div class="prose manifesto it">
+        <p>Il blu è il colore del mare aperto, ma anche quello della malinconia di chi lascia un approdo per un altro, senza mai dimenticare.</p>
+        <p>Odisseo sono io, o forse, lo siamo tutti, non eroi perfetti e irreprensibili, né uomini sicuri del tragitto, ma viaggiatori mossi dal desiderio di scoperta e dall'impulso ad esplorare.</p>
+        <p>Odisseo sono io, perché il mio percorso non è mai stato lineare, la musica, la giurisprudenza, poi la biologia, la ricerca, la divulgazione e, infine, la profumeria.</p>
+        <p>Ad ogni approdo ho dedicato molto del mio tempo e tutta la mia dedizione. Ogni esperienza mi accompagna di fronte al mio organo, dentro di me e in tutto ciò che, attraverso le mie creazioni, restituisco al mondo.</p>
+        <p>La profumeria è un'arte. Non lo dico per nobilitarla, lo dico perché un profumo nasce sempre da un'intuizione, da quel momento estatico qual è l'ispirazione, per prendere poi forma attraverso la tecnica, necessaria affinché si dia ordine e armonia a ciò che, in origine, esiste soltanto come possibilità.</p>
+        <p class="tight">Il profumiere sta a metà tra i due mondi.</p>
+        <p class="tight">Quello della scienza, con le molecole e le loro regole, con la complessità e la schiettezza degli olii e resine naturali, ciascuno nel proprio equilibrio.</p>
+        <p>Quello dell'arte, che prende forma nel caos fertile della mente, tra stupore, emozioni e l'irrefrenabile voglia di dar loro voce.</p>
+        <p class="tight">Ogni fragranza che compongo per un brand è pensata come un viaggio.</p>
+        <p class="tight">Ha un punto di partenza, un attraversamento e un approdo.</p>
+        <p>E ogni approdo sarà, ancora una volta, una nuova partenza.</p>
       </div>
-      <a class="cta" href="#contact"><span class="it">Contattami</span><span class="en">Contact me</span><span class="fr">Contactez-moi</span></a>
+      <div class="prose manifesto en">
+        <p>Blue is the colour of the open sea, but also of the melancholy of those who leave one harbour for another, without ever forgetting.</p>
+        <p>Odysseus is me, or perhaps all of us, not perfect, irreproachable heroes, nor men certain of the route, but travellers driven by the desire for discovery and the urge to explore.</p>
+        <p>Odysseus is me, because my path has never been linear, music, law, then biology, research, science communication and, finally, perfumery.</p>
+        <p>To every landing I gave much of my time and all of my devotion. Every experience accompanies me in front of my perfumer's organ, within me and in everything that, through my creations, I give back to the world.</p>
+        <p>Perfumery is an art. I do not say so to ennoble it, I say so because a perfume is always born from an intuition, from that ecstatic moment that is inspiration, and then takes shape through technique, necessary so that order and harmony may be given to what, at the origin, exists only as possibility.</p>
+        <p class="tight">The perfumer stands halfway between the two worlds.</p>
+        <p class="tight">The world of chemistry, with molecules and their rules, with the complexity and frankness of natural oils and resins, each in its own balance.</p>
+        <p>The world of art, which takes shape in the fertile chaos of the mind, between wonder, emotions and the irrepressible urge to give them a voice.</p>
+        <p class="tight">Every fragrance I compose for a brand is conceived as a journey.</p>
+        <p class="tight">It has a point of departure, a crossing and a landing.</p>
+        <p>And every landing will be, once again, a new departure.</p>
+      </div>
+      <div class="prose manifesto fr">
+        <p>Le bleu est la couleur de la haute mer, mais aussi celle de la mélancolie de qui quitte un rivage pour un autre, sans jamais oublier.</p>
+        <p>Ulysse, c'est moi, ou peut-être nous tous, non pas des héros parfaits et irréprochables, ni des hommes sûrs de leur route, mais des voyageurs mus par le désir de découverte et par l'élan d'explorer.</p>
+        <p>Ulysse, c'est moi, parce que mon parcours n'a jamais été linéaire, la musique, le droit, puis la biologie, la recherche, la vulgarisation et, enfin, la parfumerie.</p>
+        <p>À chaque escale, j'ai consacré beaucoup de mon temps et tout mon dévouement. Chaque expérience m'accompagne devant mon orgue à parfums, en moi et dans tout ce que, à travers mes créations, je rends au monde.</p>
+        <p>La parfumerie est un art. Je ne le dis pas pour l'ennoblir, je le dis parce qu'un parfum naît toujours d'une intuition, de cet instant extatique qu'est l'inspiration, pour prendre ensuite forme à travers la technique, nécessaire afin de donner ordre et harmonie à ce qui, à l'origine, n'existe que comme possibilité.</p>
+        <p class="tight">Le parfumeur se tient à mi-chemin entre deux mondes.</p>
+        <p class="tight">Le monde de la chimie, avec les molécules et leurs règles, avec la complexité et la franchise des huiles et des résines naturelles, chacune dans son propre équilibre.</p>
+        <p>Le monde de l'art, qui prend forme dans le chaos fertile de l'esprit, entre l'émerveillement, les émotions et l'irrépressible envie de leur donner une voix.</p>
+        <p class="tight">Chaque fragrance que je compose pour une marque est pensée comme un voyage.</p>
+        <p class="tight">Elle a un point de départ, une traversée et une escale.</p>
+        <p>Et chaque escale sera, une fois encore, un nouveau départ.</p>
+      </div>
     </div>
   </section>
 
@@ -721,12 +788,14 @@
       document.getElementById('langIt').setAttribute('aria-pressed', l === 'it' ? 'true' : 'false');
       document.getElementById('langEn').setAttribute('aria-pressed', l === 'en' ? 'true' : 'false');
       document.getElementById('langFr').setAttribute('aria-pressed', l === 'fr' ? 'true' : 'false');
+      document.querySelectorAll('nav.mobile .lang-row button').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-lang') === l ? 'true' : 'false'); });
       try { localStorage.setItem('et-lang', l); } catch (e) {}
     }
     setLang(['en','fr'].indexOf(root.getAttribute('data-lang')) >= 0 ? root.getAttribute('data-lang') : 'it');
     document.getElementById('langIt').addEventListener('click', function () { setLang('it'); });
     document.getElementById('langEn').addEventListener('click', function () { setLang('en'); });
     document.getElementById('langFr').addEventListener('click', function () { setLang('fr'); });
+    document.querySelectorAll('nav.mobile .lang-row button').forEach(function (b) { b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')); }); });
 
     var email = document.getElementById('emailText').textContent.trim();
     document.getElementById('copyEmail').addEventListener('click', function () {

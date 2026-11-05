@@ -205,7 +205,7 @@
   .hero .tags span { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fg-2); }
 
   /* Sections */
-  section.block { max-width: 1080px; margin: 0 auto; padding-block: 72px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); border-top: 1px solid var(--line); display: grid; grid-template-columns: 220px 1fr; gap: 32px 56px; }
+  section.block { scroll-margin-top: calc(env(safe-area-inset-top, 0px) + 64px); max-width: 1080px; margin: 0 auto; padding-block: 72px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); border-top: 1px solid var(--line); display: grid; grid-template-columns: 220px 1fr; gap: 32px 56px; }
   section.block > .head { display: grid; gap: 10px; align-content: start; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 80px); }
   section.block h2 { font-size: 38px; }
   section.block > .body { display: grid; gap: 28px; min-width: 0; }
@@ -775,7 +775,8 @@
     var splash = document.getElementById('splash');
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    function dismiss() { if (splash && !splash.classList.contains('gone')) { splash.classList.add('gone'); splash.setAttribute('aria-hidden', 'true'); } }
+    var deep = /^#(about|work|creations|manifesto|contact|press)$/.test(location.hash) ? document.querySelector(location.hash) : null;
+    function dismiss() { if (splash && !splash.classList.contains('gone')) { splash.classList.add('gone'); splash.setAttribute('aria-hidden', 'true'); if (deep) { deep.scrollIntoView({ behavior: 'auto', block: 'start' }); deep = null; } } }
     splash.addEventListener('click', dismiss);
     window.addEventListener('wheel', dismiss, { passive: true, once: true });
     window.addEventListener('touchmove', dismiss, { passive: true, once: true });
